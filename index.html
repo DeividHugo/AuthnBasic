@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Auth</title>
+</head>
+<body>
+    <h1>Authn</h1>
+
+    <script>
+        const { generateKeypair } = require('webauthn');
+    
+        function createUser(name, username, password){
+            user = {
+                'name': name,
+                'username': username,
+                'password': password,
+            };
+    
+            const { publicKey, privateKey } = generateKeypair();
+    
+            return user;
+        }
+    
+        newUser = createUser('Deivid', 'deivid', 123)
+        console.log(newUser.name)
+    </script>
+</body>
+</html>
